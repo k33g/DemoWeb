@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>Demo</title>
+    <link rel="stylesheet" type="text/css" href="/components/bootstrap/dist/css/bootstrap.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Je me la joue en Scala</h1>
+      </header>
+
+    </div>
+    <script src="/components/jquery/dist/jquery.js"></script>
+    <script src="/components/underscore/underscore.js"></script>
+    <script src="/components/backbone/backbone.js"></script>
+    <script>
+
+      var HumanModel = Backbone.Model.extend({
+          urlRoot : "humans"
+      });      
+
+      $(function() {
+        var bob = new HumanModel({id:"42"})
+        bob.fetch()
+          .done(function(){
+            $("h1").html(bob.get("firstName") + " " + bob.get("lastName"));
+          })
+      });
+
+    </script>
+  </body>
+</html>
+
+
+
+
